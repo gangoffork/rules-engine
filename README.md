@@ -1,2 +1,2 @@
 # rulesEngine
-Just a basiv rule engine for javaScript.
+Just a basic rule engine for javaScript.

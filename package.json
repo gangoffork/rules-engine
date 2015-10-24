@@ -1,0 +1,23 @@
+{
+  "name": "rules-engine",
+  "version": "1.0.0",
+  "description": "Just a basic rule engine for JavaScript",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gangoffork/rulesEngine.git"
+  },
+  "keywords": [
+    "businessrules",
+    "rules",
+    "js"
+  ],
+  "author": "Gang of Fork",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gangoffork/rulesEngine/issues"
+  },
+  "homepage": "https://github.com/gangoffork/rulesEngine"
+}

@@ -47,17 +47,15 @@ var RuleEngine = (function() {
 
 
   var runEngine = function runEngine() {
-    console.log("Queue: " + queue.length);
+    //console.log("Queue: " + queue.length);
     for (var i = queue.length - 1; i >= 0; i--) {
-      console.log((i+1) + ": " + "rule type: " + queue[i].getType());
-
-      var test1 = queue[i].condition !== undefined;
-      var test2 = queue[i].codition !== null;
-
-      console.log("test1: " + test1 + " test2: " + test2);
+      //console.log((i+1) + ": " + "rule type: " + queue[i].getType());
 
       if (queue[i].condition) {
-        queue[i].actions();
+        if (queue[i].condition(queue[i].objecto)) {
+          //console.log("Conditions");
+          queue[i].actions();
+        }
       }
     }
   };
@@ -74,24 +72,25 @@ var RuleEngine = (function() {
 
 })();
 
-var main = (function() {
-  console.log("Runnig...");
-
-  var ruleAction1 = function() {
-    console.log("Action ok");
-  };
-  var ruleCondition = function() {
-    console.log("Condition ok");
-  };
-
-  var rule1 = new RuleEngine.Rule(1, null, ruleAction1, "Busness");
-
-  console.log("rule1: " + rule1.getType());
-  console.log("rule1: " + rule1.getCondition());
-  console.log("rule1: " + typeof rule1.getCondition());
-
-
-  RuleEngine.addRule(rule1);
-  RuleEngine.run();
-
-})();
+// var main = (function() {
+//   console.log("Runnig...");
+//
+//   var ruleAction1 = function() {
+//     console.log("Action ok");
+//   };
+//   var ruleCondition = function(objecto) {
+//     console.log("Condition..");
+//     return objecto === 1;
+//   };
+//
+//   var rule1 = new RuleEngine.Rule(1, ruleCondition, ruleAction1, "Busness");
+//
+//   // console.log("rule1: " + rule1.getType());
+//   // console.log("rule1: " + rule1.getCondition());
+//   // console.log("rule1: " + typeof rule1.getCondition());
+//
+//
+//   RuleEngine.addRule(rule1);
+//   RuleEngine.run();
+//
+// })();

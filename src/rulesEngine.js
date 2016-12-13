@@ -22,7 +22,7 @@ var RuleEngine = (function() {
   var getQueue = function() {
     return queue;
   };
-
+  
   //{objecto: undefined, condition: undefined, action: undefined};
   //Constructor function.
   var rule = function rule(objecto, condition, actions, type){
@@ -47,17 +47,13 @@ var RuleEngine = (function() {
 
 
   var runEngine = function runEngine() {
-    //console.log("Queue: " + queue.length);
-    for (var i = queue.length - 1; i >= 0; i--) {
-      //console.log((i+1) + ": " + "rule type: " + queue[i].getType());
-
-      if (queue[i].condition) {
-        if (queue[i].condition(queue[i].objecto)) {
-          //console.log("Conditions");
-          queue[i].actions();
+    queue.forEach(function(rule){
+      if (rule.condition) {
+        if (rule.condition(rule.objecto)) {
+          rule.actions(rule.objecto);
         }
       }
-    }
+    });
   };
 
   return {
